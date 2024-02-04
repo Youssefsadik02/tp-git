@@ -265,7 +265,7 @@ On va maintenant intégrer la branche fonctionnalite1, qui est terminée, dans l
 
 Noter le changement dans l'onglet Git Graph. Que signifie la mention Fast-forward indiquée par la sortie de la commande ?
 
---> les branches master et fonctionnalite1 sont reliées.
+--> les branches master et fonctionnalite1 sont reliées et partagent les mêmes commits.
 
 --> Indique que la fusion entre les deux branches peut être effectuée de manière linéaire sans créer de commit de fusion supplémentaire. Cela se produit lorsque la branche qu'on fusionne est directement en avance de la branche sur laquelle on se trouve, et aucune modification n'a été apportée à cette dernière depuis la création de la branche qu'on fusionne.
 
@@ -279,7 +279,7 @@ Noter le changement dans l'onglet Git Graph. Que signifie la mention Merge made 
 
 Quelle est la différence fondamentale avec la fusion précédente ?
 
---> la différence est que lors de la fusion précédente, la branche master 
+--> la différence est que lors de cette fusion, la branche fonctionnalite2 n'est pas en avance de la branche Master, donc il y a des conflits lors de la fusion. 
 
 Créer une nouvelle branche fonctionnalite3, se déplacer dessus, et modifier le fichier fichier1.md en y ajoutant une ligne de texte. Committer : "Modification fichier1 pour fonctionnalité 3"
 
@@ -290,9 +290,15 @@ Comment utiliser Git Graph pour qu'il nous montre les différences entre l'ancie
 Repartir sur master, et modifier fichier1.md en y ajoutant aussi une ligne (différente de celle qu'on a ajoutée sur l'autre branche) ; ajouter à l'index et commit
 
 Tenter de fusionner la branche fonctionnalite3 avec master
+--> git merge fonctionnalite3
 
 Que se passe-t-il et pourquoi ?
---> La fusion a échoué, car il y a un conflit de modification de fichier1 dans les deux branches master et fonctionnalite3
+--> sortie de la commande: 
+    Auto-merging fichier1.md
+CONFLICT (content): Merge conflict in fichier1.md
+Automatic merge failed; fix conflicts and then commit the result.
+
+--> La fusion est échouée, car il y a un conflit de modification de fichier1 dans les deux branches master et fonctionnalite3
 
 Lancer un git status:
 
