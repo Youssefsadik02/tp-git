@@ -338,3 +338,6 @@ Ne pas réutiliser une branche qui a déjà été intégrée pour démarrer une 
 Nouvelle tâche ? => nouvelle branche à partir d'un commit de la branche d'intégration (en général le plus récent)
 Tâche terminée ? => fusion dans la branche d'intégration et suppression de la branche
 Supprimer les trois branches fonctionnalitex (attention : on ne peut pas supprimer une branche sur laquelle on est)
+--> git branch -D fonctionnalit1 fonctionnalite2 fonctionnalite3
+
+- **_VALIDATION PROF05_**
