@@ -361,7 +361,7 @@ Supprimer les trois branches fonctionnalitex (attention : on ne peut pas suppr
 --> Le clonage est utilisé lorsqu'on travail sur un projet collaboratif, on clone le dépot principale localement, on effectue des modifications et on les pousse vers ce même dépot principale. On utilise aussi le clonage si on veut travailler individuellement sur un projet en local.   
 
 - Modifier le fichier `README.md` à la racine du dépôt en ajoutant une ligne quelconque
---> cd  cd sio1-2024-java-grpb/
+--> cd  sio1-2024-java-grpb/
 --> code .
 --> Modif sur Vscode
 
@@ -381,6 +381,10 @@ Supprimer les trois branches fonctionnalitex (attention : on ne peut pas suppr
 - On va faire un _merge_ en local puis *push* :
 
   - Créer une branche locale `bugfix1`, se déplacer dessus, créer un nouveau fichier `ok.java` à la racine du dépôt
+  --> git branch bugfix1
+  --> git switch bugfix1
+  --> touch ok.java
+
   - Ajouter `ok.java` à l'index et faire un _commit_
   - Retourner sur `master`, créer le fichier `ajout.java`, ajouter à l'index et committer
   - Fusionner la branche `bugfix1` dans la branche `master`
@@ -404,7 +408,7 @@ fd4fd80 (bugfix1) ajout du fichier ok.java
 --> origin master c'est la branche remote; la branche distante sur laquelle on travaille
 
 - Étudier le résultat sur GitHub, en examinant _commits_ et branches (bouton _drop-down_ sur la page du dépôt pour voir les branches) : qu'est-ce qui est différent de la version locale ?
---> sur Github, On ne trouve que la branche master qui est affichée, parce qu'on a pas forcé le push de cette branche
+--> sur Github, On ne trouve que la branche master qui est affichée, parce que c'est la branche upstream, la branche bugfix n'a pas été publié.
 
 - Le bug est corrigé et intégré ; que doit-on faire de la branche `bugfix1` maintenant ?
 --> On doit la supprimer 
@@ -416,8 +420,13 @@ fd4fd80 (bugfix1) ajout du fichier ok.java
 - Supposons que l'on veuille effectivement publier sur le _remote_ une branche sur laquelle on travaille (pour sauvegarde ou pour que d'autres puissent l'utiliser)
 
   - Créer une nouvelle branche `partage`
+  --> git branch partage
+
   - Aller sur la branche
+  --> git switch partage
+
   - Ajouter un fichier `partage.md`
+  --> touch partage.md
   - L'inclure dans l'index
   - Faire un _commit_
   - _Push_
